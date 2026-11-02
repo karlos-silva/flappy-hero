@@ -247,7 +247,10 @@ function criaCanos() {
       const cabecaDoFlappy = globais.flappyBird.y;
       const peDoFlappy = globais.flappyBird.y + globais.flappyBird.altura;
 
-      if((globais.flappyBird.x + globais.flappyBird.largura) >= par.x) {
+      const encostouNoCano = (globais.flappyBird.x + globais.flappyBird.largura) >= par.x;
+      const jaPassouDoCano = globais.flappyBird.x > (par.x + canos.largura);
+
+      if(encostouNoCano && !jaPassouDoCano) {
         if(cabecaDoFlappy <= par.canoCeu.y) {
           return true;
         }
